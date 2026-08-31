@@ -6,7 +6,7 @@ class Main {
 }
 
 class Duck {
-	//hi
+	//hi hello
 	final static int MALLARD = 1, RUBBER = 2;
 	int type;
 
