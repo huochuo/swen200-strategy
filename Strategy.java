@@ -12,21 +12,33 @@ class Strategy {
 
 abstract class Duck {
   FlyBehavior fb;
+  QuackBehavior qb;
 
   void fly() { fb.fly(); }
+  void quack() { qb.quack(); }
   /* Other stable things */
 }
 
 class RedheadDuck extends Duck {
   RedheadDuck() {
       fb = new FlyWithWings();
+      qb = new NormalQuack();
   }
 }
 
 class RubberDuck extends Duck {
   RubberDuck() {
       fb = new NoFly();
+      qb = new SqueakQuack();
   }
+}
+
+interface QuackBehavior { public void quack(); }
+class NormalQuack implements QuackBehavior {
+  public void quack() { System.out.println("Quack quack"); }
+}
+class SqueakQuack implements QuackBehavior {
+  public void quack() { System.out.println("Squeak squeak"); }
 }
 
 // add quack behaviors; NormalQuack and SqueakQuack
